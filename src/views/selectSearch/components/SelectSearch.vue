@@ -26,10 +26,10 @@ export default {
       type: Object,
       default: () => {
         return {
-          // selectkey1: [{ text: '默认排序', value: 0 },
-          // { text: '按紧急程度', value: 1 },
-          // { text: '按最近创建时间', value: 2 },
-          // { text: '按最早截止时间', value: 3 }]
+          selectkey1: [
+            { text: '全部商品', value: 0 },
+            { text: '新款商品', value: 1 },
+            { text: '活动商品', value: 2 }]
           // // selectkey2: [{ text: '默认排序', value: 'a' },
           // // { text: '好评排序', value: 'b' },
           // // { text: '销量排序', value: 'c' },]
@@ -38,7 +38,11 @@ export default {
     },
     form: {
       type: Object,
-      default: () => ({})
+      default: () => {
+        return {
+          selectkey1: 0
+        }
+      }
     },
     dropdownSpan: {
       type: Number,
@@ -148,10 +152,16 @@ export default {
 
 ::v-deep.van-search {
   height: 52px;
-  .van-search__content{
-    border: 0.5px solid #bfc4ce;
+
+  .van-search__content {
+    border: 01px solid #bfc4ce;
+    box-sizing: border-box;
     background-color: #fff;
+    .van-field__control{
+      color: #515E78;
+    }
   }
+
   .icon {
     width: 20px;
     height: 20px;

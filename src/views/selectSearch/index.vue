@@ -17,10 +17,11 @@ export default {
         searchValue: '搜索值'// 输入框搜索字段
       },
       option: {
-        selectkey1: [{ text: '默认排序', value: 0 },
-        { text: '按紧急程度', value: 1 },
-        { text: '按最近创建时间', value: 2 },
-        { text: '按最早截止时间', value: 3 }],
+        selectkey1: [
+          { text: '默认排序', value: 0 },
+          { text: '按紧急程度', value: 1 },
+          { text: '按最近创建时间', value: 2 },
+          { text: '按最早截止时间', value: 3 }],
         // selectkey2: [{ text: '默认排序', value: 'a' },
         // { text: '好评排序', value: 'b' },
         // { text: '销量排序', value: 'c' }]
