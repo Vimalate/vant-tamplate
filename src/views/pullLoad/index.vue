@@ -1,9 +1,13 @@
 <template>
-  <div class="container" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd($event)" :style="{transform: 'translate3d(0,' + top + 'px, 0)'}">
+  <div class="container" @touchstart.stop="touchStart($event)" @touchmove="touchMove($event)" @touchend.stop="touchEnd($event)" :style="{transform: 'translate3d(0,' + top + 'px, 0)'}">
     <p class="drop" v-if="dropDownState == 2">松开立即刷新</p>
     <p class="drop" v-if="dropDownState == 3">正在刷新数据...</p>
     <div class="histroy" id="list">
-      <li v-for="(item,index) in list" :key="index">第{{ item }}条数据</li>
+      <li v-for="(item,index) in list" :key="index">
+        第{{ item }}条数据
+        <!-- <p class="text">第{{ item }}条数据</p> -->
+        <!-- <div>更多数据</div> -->
+      </li>
     </div>
   </div>
 </template>
@@ -48,9 +52,10 @@ export default {
         this.top = 0
         this.$nextTick(() => {
           var container = this.$el.querySelector('#list')
+          console.log(container.scrollHeight - this.scrollHeight)
           container.scrollTop = container.scrollHeight - this.scrollHeight
         })
-      }, 300)
+      }, 100)
     },
 
     // 开始
@@ -114,7 +119,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang='css'>
 .drop {
   height: 20px;
   display: flex;

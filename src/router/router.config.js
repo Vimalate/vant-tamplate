@@ -35,7 +35,7 @@ export const constantRouterMap = [
   {
     path: '/pullLoad',
     name: 'PullLoad',
-    component: () => import('@/views/pullLoad'),
+    component: () => import('@/views/pullLoad/index1'),
     meta: { title: '下拉加载', keepAlive: false }
   }
 ]
