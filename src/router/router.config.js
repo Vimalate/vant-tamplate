@@ -31,5 +31,11 @@ export const constantRouterMap = [
         meta: { title: '关于我', keepAlive: false }
       }
     ]
+  },
+  {
+    path: '/pullLoad',
+    name: 'PullLoad',
+    component: () => import('@/views/pullLoad'),
+    meta: { title: '下拉加载', keepAlive: false }
   }
 ]
