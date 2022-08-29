@@ -1,7 +1,11 @@
 <template>
-  <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-    <van-cell v-for="(item,index) in list" :key="index" :title="item" :ref="`ref_messages_nodes${item}`" />
-  </van-pull-refresh>
+  <div>
+    <van-nav-bar fixed title="标题" left-text="返回" right-text="按钮" left-arrow />
+    <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
+      <van-cell size='large' v-for="(item,index) in list" :key="index" :title="item" :ref="`ref_messages_nodes${item}`" />
+    </van-pull-refresh>
+  </div>
+
 </template>
 
 <script>
@@ -17,20 +21,20 @@ export default {
     }
   },
   mounted() {
-    this.onLoad()
+    this.onLoad('ref_messages_nodes0')
   },
   methods: {
     handleRef(ref) {
       console.log(ref)
     },
-    onLoad() {
+    onLoad(dom) {
       setTimeout(() => {
         const result = []
         if (this.refreshing) {
           // this.list = []
           this.refreshing = false
         }
-        this.topDom = `ref_messages_nodes${this.list.length}`
+        this.topDom = `ref_messages_nodes${dom || this.list.length}`
         console.log(this.topDom)
         for (let i = 0; i < 15; i++) {
           const value = this.list.length + i + 1
